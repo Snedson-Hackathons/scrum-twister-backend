@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -14,11 +14,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.17" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="CQRS\DomainBased\Commands\" />
-    <Folder Include="Models\IncomingModels\" />
   </ItemGroup>
 
 </Project>
