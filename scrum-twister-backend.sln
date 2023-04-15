@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrum-Twister.Asp", "Scrum-Twister.Asp\Scrum-Twister.Asp.csproj", "{F470CBD2-1A35-450E-B31F-5325BC7D16A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrum-Twister.Core", "Scrum-Twister.Core\Scrum-Twister.Core.csproj", "{DA3D8645-7EA7-4367-A209-A6D87276ECD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scrum-Twister.Infrastructure", "Scrum-Twister.Infrastructure\Scrum-Twister.Infrastructure.csproj", "{9713B72B-3865-497A-931E-3A1FF1D697E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F470CBD2-1A35-450E-B31F-5325BC7D16A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F470CBD2-1A35-450E-B31F-5325BC7D16A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F470CBD2-1A35-450E-B31F-5325BC7D16A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F470CBD2-1A35-450E-B31F-5325BC7D16A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA3D8645-7EA7-4367-A209-A6D87276ECD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA3D8645-7EA7-4367-A209-A6D87276ECD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA3D8645-7EA7-4367-A209-A6D87276ECD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA3D8645-7EA7-4367-A209-A6D87276ECD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9713B72B-3865-497A-931E-3A1FF1D697E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9713B72B-3865-497A-931E-3A1FF1D697E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9713B72B-3865-497A-931E-3A1FF1D697E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9713B72B-3865-497A-931E-3A1FF1D697E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BEEEC470-547F-4DB4-8036-CEFE2A5E122B}
+	EndGlobalSection
+EndGlobal
