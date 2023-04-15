@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Scrum_Twister.Core.Interfaces;
 using Scrum_Twister.Core.Models.DbModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Scrum_Twister.Infrastructure.EfcInfrastructure
 {
@@ -21,6 +16,9 @@ namespace Scrum_Twister.Infrastructure.EfcInfrastructure
         }
 
         public virtual DbSet<Avatar> Avatars { get; set; }
+        public virtual DbSet<Participant> Participants { get; set; }
+        public virtual DbSet<Session> Sessions { get; set; }
+        public virtual DbSet<SessionStatus> SessionStatuses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -43,6 +41,62 @@ namespace Scrum_Twister.Infrastructure.EfcInfrastructure
                 entity.Property(e => e.ImageUrl).HasColumnName("image_url");
 
                 entity.Property(e => e.Title).HasColumnName("title");
+            });
+
+            modelBuilder.Entity<Participant>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .ValueGeneratedNever()
+                    .HasColumnName("id");
+
+                entity.Property(e => e.ActivityAnswer).HasColumnName("activity_answer");
+
+                entity.Property(e => e.ActivityId).HasColumnName("activity_id");
+
+                entity.Property(e => e.AvatarId).HasColumnName("avatar_id");
+
+                entity.Property(e => e.Name).HasColumnName("name");
+
+                entity.Property(e => e.SessionId).HasColumnName("session_id");
+
+                entity.HasOne(d => d.Avatar)
+                    .WithMany(p => p.Participants)
+                    .HasForeignKey(d => d.AvatarId)
+                    .HasConstraintName("avatar_id_fkey");
+
+                entity.HasOne(d => d.Session)
+                    .WithMany(p => p.Participants)
+                    .HasForeignKey(d => d.SessionId)
+                    .HasConstraintName("session_id_fkey");
+            });
+
+            modelBuilder.Entity<Session>(entity =>
+            {
+                entity.HasIndex(e => e.InviteCode, "invite_code_unique")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .ValueGeneratedNever()
+                    .HasColumnName("id");
+
+                entity.Property(e => e.InviteCode).HasColumnName("invite_code");
+
+                entity.Property(e => e.StatusId).HasColumnName("status_id");
+
+                entity.HasOne(d => d.Status)
+                    .WithMany(p => p.Sessions)
+                    .HasForeignKey(d => d.StatusId)
+                    .HasConstraintName("status_id_fkey");
+            });
+
+            modelBuilder.Entity<SessionStatus>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .UseIdentityAlwaysColumn()
+                    .HasIdentityOptions(null, null, 0L, null, null, null);
+
+                entity.Property(e => e.StatusTitle).HasColumnName("status_title");
             });
 
             OnModelCreatingPartial(modelBuilder);

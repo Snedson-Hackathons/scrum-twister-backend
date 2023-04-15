@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Scrum_Twister.Core.Models.DbModels
 {
-    public partial class Avatar
+    public partial class Session
     {
-        public Avatar()
+        public Session()
         {
             Participants = new HashSet<Participant>();
         }
 
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string ImageUrl { get; set; }
+        public Guid Id { get; set; }
+        public int? StatusId { get; set; }
+        public string InviteCode { get; set; }
 
+        public virtual SessionStatus Status { get; set; }
         public virtual ICollection<Participant> Participants { get; set; }
     }
 }

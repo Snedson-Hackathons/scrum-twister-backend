@@ -23,6 +23,9 @@ namespace Scrum_Twister.Core.Interfaces
         EntityEntry Remove([NotNullAttribute] object entity);
 
         DbSet<Avatar> Avatars { get; set; }
+        DbSet<Participant> Participants { get; set; }
+        DbSet<Session> Sessions { get; set; }
+        DbSet<SessionStatus> SessionStatuses { get; set; }
 
     }
 }
