@@ -25,6 +25,12 @@ namespace Scrum_Twister.Core.Services.ReturnModelFillers.ScrumMasterRMFs
                         SessionGuid = createdSessionData.sessionGuid,
                     });
                 }
+
+                await _mediator.Send(new AddActivityForSessionsParticipantsCommand
+                {
+                    SessionId = createdSessionData.sessionGuid
+                });
+
                 await _mediator.Send(new SetSessionStatusCommand 
                 {
                     SessionId = createdSessionData.sessionGuid,

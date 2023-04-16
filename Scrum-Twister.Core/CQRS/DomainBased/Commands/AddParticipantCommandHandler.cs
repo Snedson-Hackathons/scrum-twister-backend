@@ -27,7 +27,7 @@ namespace Scrum_Twister.Core.CQRS.DomainBased.Commands
                 AvatarId = request.Participant.AvatarId,
                 Name = request.Participant.Name,
                 SessionId = request.SessionGuid,
-                //ActivityId = 
+                ActivityAnswered = false
             });
 
             await db.SaveChangesAsync();
