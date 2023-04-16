@@ -15,6 +15,7 @@ namespace Scrum_Twister.Infrastructure.EfcInfrastructure
         {
         }
 
+        public virtual DbSet<Activity> Activities { get; set; }
         public virtual DbSet<Avatar> Avatars { get; set; }
         public virtual DbSet<Participant> Participants { get; set; }
         public virtual DbSet<Session> Sessions { get; set; }
@@ -29,6 +30,23 @@ namespace Scrum_Twister.Infrastructure.EfcInfrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "en_US.utf8");
+
+            modelBuilder.Entity<Activity>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.ActivityBlob)
+                    .HasColumnType("jsonb")
+                    .HasColumnName("activity_blob");
+
+                entity.Property(e => e.ActivityType).HasColumnName("activity_type");
+
+                entity.Property(e => e.Subtitle).HasColumnName("subtitle");
+
+                entity.Property(e => e.Title).HasColumnName("title");
+            });
 
             modelBuilder.Entity<Avatar>(entity =>
             {
@@ -49,7 +67,7 @@ namespace Scrum_Twister.Infrastructure.EfcInfrastructure
                     .ValueGeneratedNever()
                     .HasColumnName("id");
 
-                entity.Property(e => e.ActivityAnswer).HasColumnName("activity_answer");
+                entity.Property(e => e.ActivityAnswered).HasColumnName("activity_answered");
 
                 entity.Property(e => e.ActivityId).HasColumnName("activity_id");
 
@@ -58,6 +76,11 @@ namespace Scrum_Twister.Infrastructure.EfcInfrastructure
                 entity.Property(e => e.Name).HasColumnName("name");
 
                 entity.Property(e => e.SessionId).HasColumnName("session_id");
+
+                entity.HasOne(d => d.Activity)
+                    .WithMany(p => p.Participants)
+                    .HasForeignKey(d => d.ActivityId)
+                    .HasConstraintName("activity_id_fkey");
 
                 entity.HasOne(d => d.Avatar)
                     .WithMany(p => p.Participants)
