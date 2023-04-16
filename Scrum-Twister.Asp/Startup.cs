@@ -38,6 +38,12 @@ namespace Scrum_Twister.Asp
             }));
 
             services.AddControllers();
+
+            services.AddSpaStaticFiles(config =>
+            {
+                config.RootPath = "dist";
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Scrum_Twister.Asp", Version = "v1" });
@@ -78,6 +84,9 @@ namespace Scrum_Twister.Asp
             {
                 endpoints.MapControllers();
             });
+
+            app.UseSpaStaticFiles();
+            app.UseSpa(builder => { });
         }
     }
 }
