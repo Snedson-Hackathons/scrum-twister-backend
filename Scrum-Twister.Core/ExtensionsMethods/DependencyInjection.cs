@@ -16,6 +16,7 @@ namespace Scrum_Twister.Core.ExtensionsMethods
 
             services.AddTransient<AvatarsListRMF>();
             services.AddTransient<StartNewSessionRMF>();
+            services.AddTransient<GetNextActivityRMF>();
 
             services.AddTransient<HeximalNumbersGeneratorService>();
 
