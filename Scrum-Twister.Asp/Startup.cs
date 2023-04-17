@@ -41,7 +41,7 @@ namespace Scrum_Twister.Asp
 
             services.AddSpaStaticFiles(config =>
             {
-                config.RootPath = "dist";
+                config.RootPath = "./build";
             });
 
             services.AddSwaggerGen(c =>
@@ -50,7 +50,8 @@ namespace Scrum_Twister.Asp
             });
 
             services.AddDbContext<ScrumTwisterContext>(
-                options => {
+                options =>
+                {
                     options
                     .UseLazyLoadingProxies()
                     .UseNpgsql(Configuration.GetConnectionString("ScrumTwisterDb"));
@@ -67,9 +68,9 @@ namespace Scrum_Twister.Asp
         {
             /*if (env.IsDevelopment())
             {*/
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Scrum_Twister.Asp v1"));
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Scrum_Twister.Asp v1"));
             //}
 
             app.UseCors("MyPolicy");

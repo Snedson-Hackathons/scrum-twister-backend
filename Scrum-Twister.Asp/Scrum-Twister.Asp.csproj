@@ -5,6 +5,7 @@
     <RootNamespace>Scrum_Twister.Asp</RootNamespace>
     <UserSecretsId>c6903306-bdfe-4bd6-998c-3b0fbbd4167b</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,6 +22,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Scrum-Twister.Core\Scrum-Twister.Core.csproj" />
     <ProjectReference Include="..\Scrum-Twister.Infrastructure\Scrum-Twister.Infrastructure.csproj" />
+    
+    <Content Include="**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

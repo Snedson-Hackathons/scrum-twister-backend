@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b78cf9e1.css",
+    "main.js": "/static/js/main.ec8133c0.js",
+    "static/media/snedson-centered.png": "/static/media/snedson-centered.902ed3d3a7e788040c53.png",
+    "static/media/sber-logo.svg": "/static/media/sber-logo.f310938d130c67df93ea0fe586f7726d.svg",
+    "static/media/main-page-logo.svg": "/static/media/main-page-logo.0b72d1940a22d4f9595ec0d460e0108e.svg",
+    "index.html": "/index.html",
+    "static/media/cross.svg": "/static/media/cross.e434e5c8b6067592d45275d207c4c7d2.svg",
+    "main.b78cf9e1.css.map": "/static/css/main.b78cf9e1.css.map",
+    "main.ec8133c0.js.map": "/static/js/main.ec8133c0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b78cf9e1.css",
+    "static/js/main.ec8133c0.js"
+  ]
+}
